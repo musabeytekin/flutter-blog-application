@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:blog_app/features/auth/domain/entities/user.dart';
 import 'package:blog_app/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +13,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required UserSignUp userSignUp,
   })  : _userSignUp = userSignUp,
         super(AuthInitial()) {
-    on<AuthSignUp>((event, emit) async{
-      final res = await _userSignUp(
-        UserSignUpParams(
-            email: event.email, password: event.password, name: event.name),
-      );
-      res.fold(
-        (l) => emit(AuthFailure(l.message)),
-        (r) => emit(AuthSuccess(r)),
-      );
-    });
+    on<AuthSignUp>(_onAuthSignUp);
+  }
+
+  FutureOr<void> _onAuthSignUp(event, emit) async {
+    emit(AuthLoading());
+    final res = await _userSignUp(
+      UserSignUpParams(
+          email: event.email, password: event.password, name: event.name),
+    );
+    res.fold(
+      (l) => emit(AuthFailure(l.message)),
+      (r) => emit(AuthSuccess(r)),
+    );
   }
 }
