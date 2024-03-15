@@ -12,4 +12,5 @@ class AppPallete {
   static const Color transparentColor = Colors.transparent;
   static const Color blogCardColor = Color.fromARGB(179, 41, 37, 41);
   static const Color blogCardRadiusColor= Color.fromARGB(179, 51, 50, 51);
+  static const Color mutedTextColor = Color.fromARGB(179, 255, 255, 255);
 }
