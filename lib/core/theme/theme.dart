@@ -17,13 +17,15 @@ class AppTheme {
     scaffoldBackgroundColor: AppPallete.backgroundColor,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
+      border: _border(),
       enabledBorder: _border(),
       focusedBorder: _border(AppPallete.gradient2),
+      errorBorder: _border(AppPallete.errorColor),
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppPallete.transparentColor,
     ),
-    chipTheme: ChipThemeData(
+    chipTheme: const ChipThemeData(
       color: MaterialStatePropertyAll(AppPallete.backgroundColor),
       side: BorderSide.none,
     ),

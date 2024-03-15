@@ -41,6 +41,7 @@ dependencies:
   get_it: ^7.6.7
   dotted_border: ^2.1.0
   image_picker: ^1.0.7
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
