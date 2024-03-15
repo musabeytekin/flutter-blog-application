@@ -22,6 +22,10 @@ class AppTheme {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppPallete.transparentColor,
-    )
+    ),
+    chipTheme: ChipThemeData(
+      color: MaterialStatePropertyAll(AppPallete.backgroundColor),
+      side: BorderSide.none,
+    ),
   );
 }
