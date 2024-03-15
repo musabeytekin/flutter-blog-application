@@ -1,4 +1,5 @@
 import 'package:blog_app/core/theme/app_pallete.dart';
+import 'package:blog_app/core/utils/calculate_reading_time.dart';
 import 'package:blog_app/features/blog/domain/entities/blog.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,13 @@ class BlogCard extends StatelessWidget {
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(
+            blog.imageUrl,
+          ),
+          fit: BoxFit.cover,
+          opacity: .223,
+        ),
         color: AppPallete.blogCardColor,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
@@ -59,10 +67,14 @@ class BlogCard extends StatelessWidget {
           const Spacer(),
           Row(
             children: [
-              const Text('1 min'),
+              Text(
+                '${calculateReadingTime(blog.content)} min',
+                style:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 10),
+              ),
               const Spacer(),
-              RichText(text: 
-                TextSpan(
+              RichText(
+                text: TextSpan(
                   text: 'By ',
                   style: const TextStyle(
                     fontWeight: FontWeight.w300,
@@ -70,9 +82,7 @@ class BlogCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: blog.posterName,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold
-                      ),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

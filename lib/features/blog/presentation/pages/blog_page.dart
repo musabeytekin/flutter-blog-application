@@ -27,17 +27,25 @@ class _BlogPageState extends State<BlogPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Blog App',
+          'What\'s New?',
           style: TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
+        centerTitle: false,
+        
         actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context, AddNewBlogPage.route());
-            },
-            icon: const Icon(CupertinoIcons.add_circled),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(context, AddNewBlogPage.route());
+              },
+              icon: const Icon(
+                CupertinoIcons.add_circled,
+                size: 30,
+              ),
+            ),
           ),
         ],
       ),
