@@ -10,4 +10,6 @@ class AppPallete {
   static const Color greyColor = Colors.grey;
   static const Color errorColor = Colors.redAccent;
   static const Color transparentColor = Colors.transparent;
+  static const Color blogCardColor = Color.fromARGB(179, 41, 37, 41);
+  static const Color blogCardRadiusColor= Color.fromARGB(179, 51, 50, 51);
 }

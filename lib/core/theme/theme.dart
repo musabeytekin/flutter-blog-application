@@ -23,7 +23,8 @@ class AppTheme {
       errorBorder: _border(AppPallete.errorColor),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppPallete.transparentColor,
+      color: AppPallete.backgroundColor,
+      
     ),
     chipTheme: const ChipThemeData(
       color: MaterialStatePropertyAll(AppPallete.backgroundColor),
