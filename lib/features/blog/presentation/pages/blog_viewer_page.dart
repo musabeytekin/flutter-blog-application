@@ -38,7 +38,7 @@ class BlogViewerPage extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: blog.posterName,
+                      text: blog.posterName ?? '..........',
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         decoration: TextDecoration.underline,

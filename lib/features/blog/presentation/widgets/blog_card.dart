@@ -21,6 +21,9 @@ class BlogCard extends StatelessWidget {
       ),
       child: CachedNetworkImage(
         imageUrl: blog.imageUrl,
+        placeholder: (context, url) => const Center(
+          child: CircularProgressIndicator(),
+        ),
         imageBuilder: (context, imageProvider) => IntrinsicHeight(
           child: Container(
             constraints: const BoxConstraints(
@@ -93,7 +96,7 @@ class BlogCard extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: blog.posterName,
+                            text: blog.posterName ?? '..........',
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],

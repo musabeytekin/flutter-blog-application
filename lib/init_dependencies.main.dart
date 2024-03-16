@@ -3,10 +3,16 @@ part of 'init_dependencies.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
+  await dotenv.load(fileName: ".env");
+
   _initAuth();
   _initBlog();
+
+  if (AppSecrets.supabaseUrl == null || AppSecrets.supabaseKey == null) {
+    throw Exception('Supabase credentials not found');
+  }
   final supabase = await Supabase.initialize(
-      url: AppSecrets.supabaseUrl, anonKey: AppSecrets.supabaseKey);
+      url: AppSecrets.supabaseUrl!, anonKey: AppSecrets.supabaseKey!);
 
   Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
   serviceLocator.registerLazySingleton(() => Hive.box(name: 'blogs'));

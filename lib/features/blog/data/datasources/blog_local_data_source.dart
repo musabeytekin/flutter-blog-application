@@ -16,6 +16,7 @@ class BlogLocalDataSourceImpl implements BlogLocalDataSource {
     box.write(() {
       for (int i = 0; i < blogs.length; i++) {
         box.put(i.toString(), blogs[i].toJson());
+        print(blogs[i].posterName);
       }
     });
   }
