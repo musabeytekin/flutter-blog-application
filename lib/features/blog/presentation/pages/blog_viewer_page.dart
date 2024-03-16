@@ -2,8 +2,8 @@ import 'package:blog_app/core/theme/app_pallete.dart';
 import 'package:blog_app/core/utils/calculate_reading_time.dart';
 import 'package:blog_app/core/utils/format_date.dart';
 import 'package:blog_app/features/blog/domain/entities/blog.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BlogViewerPage extends StatelessWidget {
   static route(Blog blog) =>
@@ -25,8 +25,8 @@ class BlogViewerPage extends StatelessWidget {
               children: [
                 Text(
                   blog.title,
-                  style:
-                      const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const SizedBox(height: 10),
                 RichText(
@@ -56,8 +56,8 @@ class BlogViewerPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 SizedBox(
-                  child: Image.network(
-                    blog.imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: blog.imageUrl,
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),

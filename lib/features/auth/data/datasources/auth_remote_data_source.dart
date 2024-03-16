@@ -86,6 +86,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
             .copyWith(email: currentUserSession!.user.email);
       }
       return null;
+    } on AuthException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
