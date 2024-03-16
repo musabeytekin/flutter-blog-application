@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:blog_app/core/constants/constants.dart';
 import 'package:blog_app/core/error/exceptions.dart';
 import 'package:blog_app/core/common/entities/user.dart';
 import 'package:blog_app/core/network/connection_checker.dart';
@@ -77,7 +78,7 @@ class AuthRepositoryImpl implements AuthRepository {
   ) async {
     try {
       if (!await connectionChecker.isConnected) {
-        return left(Failure('No internet connection!'));
+        return left(Failure(Constants.noConnectionMessage));
       }
       final user = await fn();
       return right(user);
