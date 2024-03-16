@@ -1,7 +1,7 @@
 # Blog Application
 
 
-![Cover Image](app-cover.png)
+![Cover Image](cover.png)
 
 This is a blog application built using Flutter and Supabase. It allows users to register with Supabase Auth and access a collection of blogs. The application employs clean architecture and a feature-based folder structure for better organization.
 
