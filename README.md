@@ -97,7 +97,12 @@ create policy "Anyone can upload a blog." on storage.objects
 create policy "Anyone can update their own blog." on storage.objects
   for update using (auth.uid() = owner) with check (bucket_id = 'blog_images');
 ```
-DON'T FORGET MAKE STORAGE PUBLIC!
+
+<br>
+<br>
+<b>DON'T FORGET MAKE BUCKET PUBLIC ! </b>! 
+<br>
+<br>
 
 2. Create an `.env` file in the root directory of the project and enter your Supabase API key and URL.
 
