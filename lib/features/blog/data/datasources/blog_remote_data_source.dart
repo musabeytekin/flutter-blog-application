@@ -25,6 +25,8 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
       final blogData =
           await supabaseClient.from('blogs').insert(blog.toJson()).select();
       return BlogModel.fromJson(blogData.first);
+    } on PostgrestException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
