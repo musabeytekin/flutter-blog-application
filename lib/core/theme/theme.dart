@@ -24,7 +24,6 @@ class AppTheme {
     ),
     appBarTheme: const AppBarTheme(
       color: AppPallete.backgroundColor,
-      
     ),
     chipTheme: const ChipThemeData(
       color: MaterialStatePropertyAll(AppPallete.backgroundColor),

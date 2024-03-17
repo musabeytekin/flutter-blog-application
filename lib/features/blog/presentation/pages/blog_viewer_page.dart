@@ -2,8 +2,10 @@ import 'package:blog_app/core/theme/app_pallete.dart';
 import 'package:blog_app/core/utils/calculate_reading_time.dart';
 import 'package:blog_app/core/utils/format_date.dart';
 import 'package:blog_app/features/blog/domain/entities/blog.dart';
+import 'package:blog_app/features/blog/presentation/widgets/markdown/custom_markdown_body.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class BlogViewerPage extends StatelessWidget {
   static route(Blog blog) =>
@@ -63,13 +65,7 @@ class BlogViewerPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Text(
-                  blog.content,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    height: 2,
-                  ),
-                ),
+                CustomMarkdownBody(data: blog.content),
               ],
             ),
           ),
